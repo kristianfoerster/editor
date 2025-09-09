@@ -3,8 +3,13 @@ from typing import TYPE_CHECKING
 
 import PySide6
 import qtawesome as qta
-from PySide6.QtAxContainer import QAxObject
-from PySide6.QtCore import QCoreApplication, Qt, Slot
+from PySide6.QtCore import Slot
+import sys
+
+if sys.platform == "win32":
+    from PySide6.QtAxContainer import QAxObject
+else:
+    QAxObject = None  # dummyfrom PySide6.QtCore import QCoreApplication, Qt, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtWidgets import QHBoxLayout, QMessageBox, QStyledItemDelegate, QVBoxLayout
 

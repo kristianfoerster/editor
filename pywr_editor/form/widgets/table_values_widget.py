@@ -3,7 +3,12 @@ from itertools import groupby
 
 import PySide6
 import qtawesome as qta
-from PySide6.QtAxContainer import QAxObject
+import sys
+
+if sys.platform == "win32":
+    from PySide6.QtAxContainer import QAxObject
+else:
+    QAxObject = None  # dummy
 from PySide6.QtCore import QCoreApplication, Qt, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtWidgets import (
